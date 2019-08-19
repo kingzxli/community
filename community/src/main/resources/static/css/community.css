@@ -1,0 +1,15 @@
+.main{
+	margin: 30px;
+	background-color: white;
+	
+}
+.btn-publish{
+	float: right;
+	margin-bottom: 15px;
+}
+
+body{
+/*   background:#fff url(../image/11.PNG) no-repeat left top;
+  background-size:100%; */
+  background-color: #efefef;
+}
