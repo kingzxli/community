@@ -35,6 +35,9 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
+      	<li th:if="${session.user!=null}">
+      		<a href="/publish">发布</a>
+      	</li>
         <li class="dropdown" th:if="${session.user!=null}">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" th:text="${session.user.name}"> <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -45,7 +48,7 @@
         </li>
         
          <li th:if="${session.user==null}">
-         <a href="https://github.com/login/oauth/authorize?client_id=13c76186ed2b03a98721&&redirect_uri=http://localhost:8080/callback&&scope=user&&state=1">登录</a>
+         <a href="https://github.com/login/oauth/authorize?client_id=0233f5bf1978fea2e062&&redirect_uri=http://localhost:8080/callback&&scope=user&&state=1">登录</a>
          </li>
       </ul>
     </div>

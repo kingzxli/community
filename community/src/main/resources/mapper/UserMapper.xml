@@ -6,9 +6,9 @@
 
  	<insert id="insert" parameterType="life.majiang.community.model.User">
 		insert into user(
-		 account_id,name,token,gmt_create,gmt_modified,bio
+		 account_id,name,token,gmt_create,gmt_modified,bio,avatar_url
 		)values(
-		#{accountId},#{name},#{token},#{gmtCreate},#{gmtModified},#{bio}
+		#{accountId},#{name},#{token},#{gmtCreate},#{gmtModified},#{bio},#{avatarUrl}
 		)
 	</insert>
 	
