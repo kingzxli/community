@@ -3,7 +3,7 @@ package life.majiang.community.model;
 import lombok.Data;
 
 @Data
-public class Quesstion {
+public class Question {
 	private int id;
 	private String title;
 	private String description;

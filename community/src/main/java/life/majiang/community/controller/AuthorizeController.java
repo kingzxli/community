@@ -37,10 +37,10 @@ public class AuthorizeController {
 	@GetMapping("/callback")
 	public  String callback(String code,String state,Model model,HttpServletResponse response) {
 		AccessTokenDTO accessTokenDTO=new AccessTokenDTO();
-		accessTokenDTO.setClient_id(clientId);
-		accessTokenDTO.setClient_secret(clientSecret);
+		accessTokenDTO.setClientId(clientId);
+		accessTokenDTO.setClientSecret(clientSecret);
 		accessTokenDTO.setCode(code);
-		accessTokenDTO.setRedirect_uri(redirectUri);
+		accessTokenDTO.setRedirectUri(redirectUri);
 		accessTokenDTO.setState(state);
 		
 		String accessToken=githubProvider.getAccessToken(accessTokenDTO);
@@ -53,7 +53,7 @@ public class AuthorizeController {
 			user.setAccountId(githubUser.getId());
 			user.setGmtCreate(System.currentTimeMillis());
 			user.setGmtModified(user.getGmtCreate());
-			user.setAvatarUrl(githubUser.getAvatar_url());
+			user.setAvatarUrl(githubUser.getAvatarUrl());
 			
 			userMapper.insert(user);
 			//1.用户信息写入session

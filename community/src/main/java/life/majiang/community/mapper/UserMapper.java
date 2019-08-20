@@ -6,5 +6,6 @@ public interface UserMapper {
 
 	void insert(User user);
 	User findUserByToken(String token);
+	User findById(Integer creator);
 
 }
