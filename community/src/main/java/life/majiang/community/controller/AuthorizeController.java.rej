@@ -1,0 +1,9 @@
+diff a/community/src/main/java/life/majiang/community/controller/AuthorizeController.java b/community/src/main/java/life/majiang/community/controller/AuthorizeController.java	(rejected hunks)
+@@ -53,6 +53,7 @@
+ 			user.setAccountId(githubUser.getId());
+ 			user.setGmtCreate(System.currentTimeMillis());
+ 			user.setGmtModified(user.getGmtCreate());
++			user.setAvatarUrl(githubUser.getAvatarUrl());
+ 			
+ 			userMapper.insert(user);
+ 			//1.用户信息写入session
