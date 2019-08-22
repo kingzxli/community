@@ -8,7 +8,7 @@ public interface QuestionMapper {
 
 	void insert(Question question);
 	Question findById(Integer id);
-	List<Question> list();
-	
+	List<Question> list(Integer offset,Integer size);
+	Integer count();
 
 }
