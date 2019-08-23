@@ -31,5 +31,25 @@
 	<select id="countByUserId" resultType="java.lang.Integer">
 	    select count(1) from question where creator=#{userId}
 	</select>
+	
+	<update id="update" parameterType="life.majiang.community.model.Question">
+		update user
+		<set>
+			<if test="title!=null">
+				title=#{title},
+			</if>
+			<if test="description!=null">
+				description=#{description},
+			</if>
+			<if test="gmtModified!=null">
+				gmt_modified=#{gmtModified},
+			</if>
+			<if test="tag!=null">
+				tag=#{tag}
+			</if>
+		</set>
+		where
+		id=#{id}
+	</update>
 
 </mapper>

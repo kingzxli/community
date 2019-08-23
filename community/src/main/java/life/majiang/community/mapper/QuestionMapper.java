@@ -1,7 +1,6 @@
 package life.majiang.community.mapper;
 
 import java.util.List;
-
 import life.majiang.community.model.Question;
 
 public interface QuestionMapper {
@@ -12,5 +11,6 @@ public interface QuestionMapper {
 	Integer countByUserId(Integer userId);
 	Integer count();
 	List<Question> listByUserId(Integer userId, Integer offset, Integer size);
+	void update(Question question);
 
 }
