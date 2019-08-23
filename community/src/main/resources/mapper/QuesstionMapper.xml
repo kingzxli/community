@@ -20,8 +20,16 @@
 	    select * from question limit #{offset},#{size}
 	</select>
 	
+	<select id="listByUserId" resultType="life.majiang.community.model.Question">
+	    select * from question where creator=#{userId} limit #{offset},#{size}
+	</select>
+	
 	<select id="count" resultType="java.lang.Integer">
 	    select count(1) from question
+	</select>
+	
+	<select id="countByUserId" resultType="java.lang.Integer">
+	    select count(1) from question where creator=#{userId}
 	</select>
 
 </mapper>
