@@ -33,7 +33,7 @@
 	</select>
 	
 	<update id="update" parameterType="life.majiang.community.model.Question">
-		update user
+		update question
 		<set>
 			<if test="title!=null">
 				title=#{title},
@@ -44,6 +44,15 @@
 			<if test="gmtModified!=null">
 				gmt_modified=#{gmtModified},
 			</if>
+			<if test="commentCount!=null">
+				comment_count=#{commentCount},
+			</if>
+			<if test="viewCount!=null">
+				view_count=#{viewCount},
+			</if>
+			<if test="likeCount!=null">
+				like_count=#{likeCount},
+			</if>
 			<if test="tag!=null">
 				tag=#{tag}
 			</if>
@@ -51,5 +60,4 @@
 		where
 		id=#{id}
 	</update>
-
 </mapper>

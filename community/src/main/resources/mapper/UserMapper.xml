@@ -20,6 +20,13 @@
 	 select * from user where id=#{id}
 	</select>
 	
+	<select id="selectByIds" resultType="life.majiang.community.model.User">
+	 select * from user where id in 
+		<foreach collection="list" item="id" open="(" separator="," close=")">
+		#{id}
+		</foreach>
+	</select>	
+	
 	<select id="findByAccountId" resultType="life.majiang.community.model.User">
 	 select * from user where account_id=#{accountId}
 	</select>

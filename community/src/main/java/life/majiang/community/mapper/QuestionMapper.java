@@ -6,11 +6,11 @@ import life.majiang.community.model.Question;
 public interface QuestionMapper {
 
 	void insert(Question question);
-	Question findById(Integer id);
+	Question findById(Long id);
 	List<Question> list(Integer offset,Integer size);
-	Integer countByUserId(Integer userId);
+	Integer countByUserId(Long userId);
 	Integer count();
-	List<Question> listByUserId(Integer userId, Integer offset, Integer size);
-	void update(Question question);
+	List<Question> listByUserId(Long userId, Integer offset, Integer size);
+	Integer update(Question question);
 
 }

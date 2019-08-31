@@ -19,7 +19,8 @@ public class PublishController {
 	private QuestionService questionService;
 	
 	@GetMapping("/publish/{id}")   //get请求渲染页面
-	public String edit(@PathVariable(name="id") Integer id,Model model) {
+	public String edit(@PathVariable(name="id") Long id,Model model) {
+		
 		QuestionDTO question=questionService.getById(id);
 		model.addAttribute("title", question.getTitle());
 		model.addAttribute("description", question.getDescription());
@@ -35,7 +36,7 @@ public class PublishController {
 	}
 	
 	@PostMapping("/publish")   //post请求数据
-	public String doPublish(String title,String description,String tag,Integer id,HttpServletRequest request,Model model) {
+	public String doPublish(String title,String description,String tag,Long id,HttpServletRequest request,Model model) {
 
 		model.addAttribute("title", title);
 		model.addAttribute("description", description);

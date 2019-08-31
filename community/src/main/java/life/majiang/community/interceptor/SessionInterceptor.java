@@ -1,5 +1,7 @@
 package life.majiang.community.interceptor;
 
+import java.util.List;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,9 +26,9 @@ public class SessionInterceptor implements HandlerInterceptor {
 		if(cookies!=null&&cookies.length!=0) {
 		for(Cookie cookie:request.getCookies()) {
 			if(cookie.getName().equals("token")) {
-				User user=userMapper.findUserByToken(cookie.getValue());
-				if(user!=null) {
-					request.getSession().setAttribute("user", user);
+				List<User> users=userMapper.findUserByToken(cookie.getValue());
+				if(users.size()!=0) {
+					request.getSession().setAttribute("user", users.get(0));
 				}
 				break;
 			}

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+	<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" 
+		"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="life.majiang.community.mapper.CommentMapper">
+
+ 	<insert id="insert" parameterType="life.majiang.community.model.Comment">
+		insert into comment(
+		 parent_id,type,commentator,gmt_create,gmt_modified,like_count,content
+		)values(
+		#{parentId},#{type},#{commentator},#{gmtCreate},#{gmtModified},#{likeCount},#{content}
+		)
+	</insert>
+	
+    <select id="findById" resultType="life.majiang.community.model.Comment">
+	 select * from comment where id=#{id}
+	</select>
+	
+	<select id="selectByParentId" resultType="life.majiang.community.model.Comment">
+	 select * from comment where parent_id=#{parentId} and type=1 order by gmt_create desc;
+	</select>
+	
+    <select id="list" resultType="life.majiang.community.model.Comment">
+	    select * from comment limit #{offset},#{size}
+	</select>
+	
+	<select id="listByUserId" resultType="life.majiang.community.model.Comment">
+	    select * from comment where creator=#{userId} limit #{offset},#{size}
+	</select>
+	
+	<select id="count" resultType="java.lang.Integer">
+	    select count(1) from comment
+	</select>
+	
+	<select id="countByUserId" resultType="java.lang.Integer">
+	    select count(1) from comment where creator=#{userId}
+	</select>
+	
+	<update id="update" parameterType="life.majiang.community.model.Comment">
+		update comment
+		<set>
+			<if test="parentId!=null">
+				parent_id=#{parentId},
+			</if>
+			<if test="type!=null">
+				type=#{type},
+			</if>
+			<if test="commentator!=null">
+				commentator=#{commentator},
+			</if>
+			<if test="gmtCreate!=null">
+				gmt_create=#{gmtCreate},
+			</if>
+			<if test="gmtModified!=null">
+				gmt_modified=#{gmtModified},
+			</if>
+			<if test="likeCount!=null">
+				like_count=#{likeCount},
+			</if>
+			<if test="content!=null">
+				content=#{content}
+			</if>
+		</set>
+		where
+		id=#{id}
+	</update>
+</mapper>
