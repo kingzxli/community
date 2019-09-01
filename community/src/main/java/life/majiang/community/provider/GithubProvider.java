@@ -28,7 +28,7 @@ public class GithubProvider {
 		        .build();
 		 try (Response response = client.newCall(request).execute()) {
 		    	String string=response.body().string();
-		    	System.out.println("打印的返回token=="+string);
+		    	System.out.println("打印token="+string);
 		    	String str=string.substring(string.indexOf("=")+1, string.indexOf("&"));
 		      return str;
 		    }catch(IOException e) {
@@ -37,7 +37,6 @@ public class GithubProvider {
 		return null;
 		}
 	
-	//0cd09a501a5099e07a8d47b5801d6801997d3cd0
 	public GithubUser getUser(String accessToken) {
 		OkHttpClient client = new OkHttpClient();
 	    Request request = new Request.Builder()

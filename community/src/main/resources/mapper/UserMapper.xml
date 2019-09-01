@@ -15,6 +15,41 @@
 	<select id="findUserByToken" resultType="life.majiang.community.model.User">
 	 select * from user where token=#{token}
 	</select>
+	
+	<select id="findById" resultType="life.majiang.community.model.User">
+	 select * from user where id=#{id}
+	</select>
+	
+	<select id="selectByIds" resultType="life.majiang.community.model.User">
+	 select * from user where id in 
+		<foreach collection="list" item="id" open="(" separator="," close=")">
+		#{id}
+		</foreach>
+	</select>	
+	
+	<select id="findByAccountId" resultType="life.majiang.community.model.User">
+	 select * from user where account_id=#{accountId}
+	</select>
+	
+	  	<update id="update" parameterType="life.majiang.community.model.User">
+		update user
+		<set>
+			<if test="name!=null">
+				name=#{name},
+			</if>
+			<if test="token!=null">
+				token=#{token},
+			</if>
+			<if test="gmtModified!=null">
+				gmt_modified=#{gmtModified},
+			</if>
+			<if test="avatarUrl!=null">
+				avatar_url=#{avatarUrl}
+			</if>
+		</set>
+		where
+		id=#{id}
+	</update>
 
 </mapper>
 	
