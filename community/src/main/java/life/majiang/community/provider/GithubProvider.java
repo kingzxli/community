@@ -28,7 +28,6 @@ public class GithubProvider {
 		        .build();
 		 try (Response response = client.newCall(request).execute()) {
 		    	String string=response.body().string();
-		    	System.out.println("打印token="+string);
 		    	String str=string.substring(string.indexOf("=")+1, string.indexOf("&"));
 		      return str;
 		    }catch(IOException e) {
